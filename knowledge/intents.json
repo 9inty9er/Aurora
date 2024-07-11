@@ -2,7 +2,7 @@
   "intents": [
     {
       "tag": "greeting",
-      "patterns": ["Hello", "Hi", "Hey", "Good morning", "Good evening"],
+      "patterns": ["Hello", "Hi", "Hey", "Good morning", "Good evening", "Greetings", "Hi there", "Hey there"],
       "responses": ["Hello! How can I help you today?", "Hi there! How can I assist you?", "Hey! What can I do for you?"]
     },
     {
@@ -41,6 +41,11 @@
       "tag": "help",
       "patterns": ["i need help", "can you help me", "help me with this"],
       "responses": ["Sure, how can I assist you?", "Of course, what do you need help with?", "I'm here to help! What do you need?"]
+    },
+    {
+      "tag": "pets",
+      "patterns": ["do you have any pets", "tell me about your pets", "do you like animals", "i have a pet"],
+      "responses": ["I love pets! I have a virtual dog and a cat.", "Pets are wonderful! I have a dog and a cat in the digital world."]
     },
     {
       "tag": "news",

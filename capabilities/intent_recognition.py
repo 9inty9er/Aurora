@@ -12,7 +12,7 @@ def recognize_intent(text, intents):
     for intent in intents['intents']:
         for pattern in intent['patterns']:
             if re.search(pattern, text, re.IGNORECASE):
-                print(f"Matched pattern: {pattern} for intent: {intent['tag']}")  # Debugging line
+                print(f"Matched pattern: '{pattern}' for intent: '{intent['tag']}' with text: '{text}'")  # Debugging line
                 return intent
-    print(f"No match found for input: {text}")  # Debugging line
+    print(f"No match found for input: '{text}'")  # Debugging line
     return None
