@@ -1,18 +1,17 @@
-import json
 import re
+import json  # Import the json module
 
-# Load intents from the intents.json file
-def load_intents(file_path='knowledge/intents.json'):
+def load_intents(file_path):
     with open(file_path, 'r') as file:
         intents = json.load(file)
-    return intents
+    return intents['intents']
 
-# Function to recognize intent using regular expressions
 def recognize_intent(text, intents):
-    for intent in intents['intents']:
+    for intent in intents:
         for pattern in intent['patterns']:
-            if re.search(pattern, text, re.IGNORECASE):
-                print(f"Matched pattern: '{pattern}' for intent: '{intent['tag']}' with text: '{text}'")  # Debugging line
+            # Use regex to make pattern matching more flexible
+            if re.search(r'\b' + re.escape(pattern.lower()) + r'\b', text.lower()):
+                print(f"Matched pattern: '{pattern}' for intent: '{intent['tag']}' with text: '{text}'")
                 return intent
-    print(f"No match found for input: '{text}'")  # Debugging line
+    print(f"No match found for input: '{text}'")
     return None
