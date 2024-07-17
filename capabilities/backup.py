@@ -4,7 +4,7 @@ import threading
 
 def start_backup_process():
     try:
-        subprocess.Popen(["python", "E:/Aurora/capabilities/aurora_backup.py"])
+        subprocess.Popen(["python", "E:/Aurora/capabilities/aurora_backup.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         print("Backup process started successfully.")
     except Exception as e:
         print(f"Error starting backup process: {e}")
