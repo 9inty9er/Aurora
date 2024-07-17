@@ -24,12 +24,17 @@ def git_backup():
         # Add all changes to the staging area
         subprocess.run(['git', 'add', '.'], check=True)
 
-        # Commit the changes
-        subprocess.run(['git', 'commit', '-m', 'Automated backup'], check=True)
+        # Check for changes
+        result = subprocess.run(['git', 'status', '--porcelain'], capture_output=True, text=True)
+        if result.stdout.strip():
+            # Commit the changes
+            subprocess.run(['git', 'commit', '-m', 'Automated backup'], check=True)
 
-        # Push the changes to the remote repository
-        subprocess.run(['git', 'push', '-u', 'origin', 'master'], check=True)
-        print("Git backup completed successfully.")
+            # Push the changes to the remote repository
+            subprocess.run(['git', 'push', '-u', 'origin', 'master'], check=True)
+            print("Git backup completed successfully.")
+        else:
+            print("No changes to commit.")
     except subprocess.CalledProcessError as e:
         print(f"Error during Git backup: {e}")
 
