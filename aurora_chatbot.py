@@ -5,7 +5,7 @@ from transformers import pipeline
 from capabilities.entity_extraction import extract_entities
 from capabilities.context_management import ContextManager
 from capabilities.intent_recognition import load_intents, recognize_intent
-from capabilities.backup import start_backup_process, schedule_periodic_backup
+from capabilities.backup import start_backup_process, start_periodic_backup_thread
 from capabilities.memory import handle_memory
 from capabilities.response import generate_response
 
@@ -32,7 +32,7 @@ def chat_with_aurora():
     # Start the initial backup check
     start_backup_process()
     # Schedule periodic backups
-    threading.Thread(target=schedule_periodic_backup, daemon=True).start()
+    start_periodic_backup_thread()
 
     identity = context_manager.get_identity()
     print(f"Hello, I am {identity['identity']['name']}, an advanced AI developed to assist and learn from human interactions.")

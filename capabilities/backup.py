@@ -1,5 +1,6 @@
 import subprocess
 import time
+import threading
 
 def start_backup_process():
     try:
@@ -12,3 +13,8 @@ def schedule_periodic_backup():
     while True:
         time.sleep(300)  # Wait for 5 minutes
         start_backup_process()
+
+def start_periodic_backup_thread():
+    backup_thread = threading.Thread(target=schedule_periodic_backup)
+    backup_thread.daemon = True
+    backup_thread.start()
