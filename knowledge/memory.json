@@ -16,9 +16,23 @@
             "unknown",
             "unknown",
             "unknown",
+            "unknown",
+            "greeting",
+            "unknown",
             "unknown"
         ],
-        "entities": []
+        "entities": [
+            [
+                [
+                    "Aurora",
+                    "PERSON"
+                ]
+            ]
+        ]
     },
-    "memory": {}
+    "memory": {
+        "PERSON": [
+            "Aurora"
+        ]
+    }
 }

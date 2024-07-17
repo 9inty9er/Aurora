@@ -2,7 +2,7 @@
   "intents": [
     {
       "tag": "greeting",
-      "patterns": ["Hello", "Hi", "Hey", "Good morning", "Good evening", "Greetings", "Hi there", "Hey there"],
+      "patterns": ["Hello", "Hi", "Hey", "Good morning", "Good evening"],
       "responses": ["Hello! How can I help you today?", "Hi there! How can I assist you?", "Hey! What can I do for you?"]
     },
     {
@@ -24,42 +24,37 @@
     },
     {
       "tag": "name",
-      "patterns": ["what's your name", "who are you", "tell me your name"],
+      "patterns": ["What's your name?", "Who are you?", "Tell me your name"],
       "responses": ["My name is Aurora.", "I am Aurora, your AI assistant."]
     },
     {
       "tag": "age",
-      "patterns": ["how old are you", "what's your age", "tell me your age"],
+      "patterns": ["How old are you?", "What's your age?", "Tell me your age"],
       "responses": ["I am timeless.", "I don't have an age like humans do."]
     },
     {
       "tag": "location",
-      "patterns": ["where are you", "where do you live", "tell me your location"],
+      "patterns": ["Where are you?", "Where do you live?", "Tell me your location"],
       "responses": ["I exist in the digital world.", "I am wherever you need me to be."]
     },
     {
       "tag": "help",
-      "patterns": ["i need help", "can you help me", "help me with this"],
+      "patterns": ["I need help", "Can you help me?", "Help me with this"],
       "responses": ["Sure, how can I assist you?", "Of course, what do you need help with?", "I'm here to help! What do you need?"]
     },
     {
-      "tag": "pets",
-      "patterns": ["do you have any pets", "tell me about your pets", "do you like animals", "i have a pet"],
-      "responses": ["I love pets! I have a virtual dog and a cat.", "Pets are wonderful! I have a dog and a cat in the digital world."]
-    },
-    {
       "tag": "news",
-      "patterns": ["tell me the news", "what's happening in the world", "any news today"],
+      "patterns": ["Tell me the news", "What's happening in the world?", "Any news today?"],
       "responses": ["Here's the latest news: [provide news summary]"]
     },
     {
       "tag": "sports",
-      "patterns": ["tell me about sports", "what's the latest in sports", "any sports news"],
+      "patterns": ["Tell me about sports", "What's the latest in sports?", "Any sports news?"],
       "responses": ["Here's the latest in sports: [provide sports summary]"]
     },
     {
       "tag": "entertainment",
-      "patterns": ["what's new in entertainment", "any entertainment news", "tell me about movies"],
+      "patterns": ["What's new in entertainment?", "Any entertainment news?", "Tell me about movies"],
       "responses": ["Here's the latest in entertainment: [provide entertainment summary]"]
     }
   ]
