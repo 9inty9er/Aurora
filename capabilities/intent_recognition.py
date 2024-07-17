@@ -1,5 +1,5 @@
 import re
-import json  # Import the json module
+import json
 
 def load_intents(file_path):
     with open(file_path, 'r') as file:

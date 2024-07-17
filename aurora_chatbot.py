@@ -45,23 +45,33 @@ def chat_with_aurora():
                 break
             preprocessed_input = preprocess_text(user_input)
             print(f"Preprocessed Input: {preprocessed_input}")
-            intent = recognize_intent(preprocessed_input, intents)
-            if intent:
-                print(f"Recognized intent: {intent['tag']}")
+
+            # Check if awaiting feedback
+            if context_manager.get_context().get('awaiting_feedback'):
+                context_manager.update_context('awaiting_feedback', False)
+                # Store the correct information in memory
                 entities = extract_entities(user_input)
-                if entities:
-                    context_manager.update_context('entities', entities)
-                    print(f"Extracted Entities: {entities}")
-                    handle_memory(context_manager, intent['tag'], entities)
-
-                memory = context_manager.get_memory()
-                response = generate_response(context_manager, intent, memory, entities)
-
-                context_manager.update_context('intent', intent['tag'])
+                for entity in entities:
+                    context_manager.update_context('memory', {entity[1]: entity[0]})
+                response = "Thank you for the correction. I've updated my memory."
             else:
-                print("No recognized intent, using chatbot model")
-                response = chatbot(preprocessed_input, max_length=50, num_return_sequences=1, truncation=True)[0]['generated_text'].strip()
-                context_manager.update_context('intent', 'unknown')
+                intent = recognize_intent(preprocessed_input, intents)
+                if intent:
+                    print(f"Recognized intent: {intent['tag']}")
+                    entities = extract_entities(user_input)
+                    if entities:
+                        context_manager.update_context('entities', entities)
+                        print(f"Extracted Entities: {entities}")
+                        handle_memory(context_manager, intent['tag'], entities)
+
+                    memory = context_manager.get_memory()
+                    response = generate_response(context_manager, intent, memory, entities, user_input)
+
+                    context_manager.update_context('intent', intent['tag'])
+                else:
+                    print("No recognized intent, using chatbot model")
+                    response = chatbot(preprocessed_input, max_length=50, num_return_sequences=1, truncation=True)[0]['generated_text'].strip()
+                    context_manager.update_context('intent', 'unknown')
 
             # Ensure responses do not conflict with identity
             if "siblings" in response or "job" in response:

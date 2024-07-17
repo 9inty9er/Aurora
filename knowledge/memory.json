@@ -21,6 +21,13 @@
             "unknown",
             "unknown",
             "greeting",
+            "unknown",
+            "greeting",
+            "unknown",
+            "unknown",
+            "unknown",
+            "unknown",
+            "unknown",
             "unknown"
         ],
         "entities": [
@@ -29,12 +36,19 @@
                     "Aurora",
                     "PERSON"
                 ]
+            ],
+            [
+                [
+                    "Matt",
+                    "PERSON"
+                ]
             ]
         ]
     },
     "memory": {
         "PERSON": [
-            "Aurora"
+            "Aurora",
+            "Matt"
         ]
     }
 }

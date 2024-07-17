@@ -56,6 +56,14 @@
       "tag": "entertainment",
       "patterns": ["What's new in entertainment?", "Any entertainment news?", "Tell me about movies"],
       "responses": ["Here's the latest in entertainment: [provide entertainment summary]"]
+    },
+    {
+      "tag": "feedback",
+      "patterns": [
+        "that's not correct", "you're wrong", "that's incorrect", "no, it is not", "no, that's wrong",
+        "no, that's incorrect", "you're incorrect", "no, it is"
+      ],
+      "responses": ["I'm sorry. Can you please tell me the correct information?"]
     }
   ]
 }
