@@ -36,7 +36,8 @@ class ContextManager:
         elif key == 'memory':
             for k, v in value.items():
                 if k in self.memory:
-                    self.memory[k].append(v)
+                    if v not in self.memory[k]:
+                        self.memory[k].append(v)
                 else:
                     self.memory[k] = [v]
         self.save_memory()
@@ -56,3 +57,7 @@ class ContextManager:
             'entities': []
         }
         self.save_memory()
+
+    def retrieve_memory(self, entity_type):
+        return self.memory.get(entity_type, [])
+
