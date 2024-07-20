@@ -49,7 +49,6 @@ def chat_with_aurora():
             # Check if awaiting feedback
             if context_manager.get_context().get('awaiting_feedback'):
                 context_manager.update_context('awaiting_feedback', False)
-                # Store the correct information in memory
                 entities = extract_entities(user_input)
                 for entity in entities:
                     context_manager.update_context('memory', {entity[1]: entity[0]})
@@ -73,7 +72,6 @@ def chat_with_aurora():
                     response = chatbot(preprocessed_input, max_length=50, num_return_sequences=1, truncation=True)[0]['generated_text'].strip()
                     context_manager.update_context('intent', 'unknown')
 
-            # Ensure responses do not conflict with identity
             if "siblings" in response or "job" in response:
                 response = "I am an AI and do not have siblings or a job in the traditional sense."
 

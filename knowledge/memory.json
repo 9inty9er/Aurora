@@ -28,6 +28,15 @@
             "unknown",
             "unknown",
             "unknown",
+            "unknown",
+            "greeting",
+            "weather",
+            "unknown",
+            "unknown",
+            "unknown",
+            "unknown",
+            "unknown",
+            "unknown",
             "unknown"
         ],
         "entities": [
@@ -42,6 +51,12 @@
                     "Matt",
                     "PERSON"
                 ]
+            ],
+            [
+                [
+                    "Aurora",
+                    "PRODUCT"
+                ]
             ]
         ]
     },
@@ -49,6 +64,9 @@
         "PERSON": [
             "Aurora",
             "Matt"
+        ],
+        "PRODUCT": [
+            "Aurora"
         ]
     }
 }
